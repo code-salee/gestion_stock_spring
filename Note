@@ -1,0 +1,16 @@
+AbstractEntity = L'entité Abstract permet de regrouper tous les champs ou tous les propriétés des entités semblables
+La classe Java Instant = est utilisée pour représenter un moment spécifique sur la ligne de temps. Cela peut être utilisé pour enregistrer les horodatages des événements dans l'application. Cette classe est immuable et thread-safe.
+@JsonIgnore = permet d'ignorer la propriété lors de l'interrogation de l'API
+@EntityListeners = c'est un écouteur d'événements sur la classe AbstractEntity et à chaque fois qu'il trouve  @createdDate et @LastModifiedDate va automatiquement mettre à jour ces champs dans la base de données. Elle va assigner à creationDate une valeur lors de la creation et lors de modification elle assigner une valeur à modificationDAte
+Relation entre table(@OneToMany......) = 
+@Embeddable = L'annotation JPA @Embedded est utilisée pour incorporer un type dans une autre entité.
+STRUCTURE DU PROJET[
+    dossier:
+        -> model: chaque entité aura un fichier. Exp: Article.java 
+        -> model: chaque entité aura un fichier 
+        -> model: chaque entité aura un fichier 
+        -> model: chaque entité aura un fichier 
+        -> model: chaque entité aura un fichier 
+
+]
+
