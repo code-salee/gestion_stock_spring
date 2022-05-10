@@ -2,19 +2,14 @@ package com.momo.gestiondestock.model;
 
 import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import lombok.*;
 
-import java.time.Instant;
-import java.util.List;
+import java.util.Date;
 
 @Data
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor
+@EqualsAndHashCode(callSuper=true)
 @Entity
 @Table(name="utilisateur")
 
@@ -30,7 +25,7 @@ public class Utilisateur extends AbstractEntity{
     private String email;
 
     @Column(name = "datedenaissance")
-    private Instant dateDeNaissance;
+    private Date dateDeNaissance;
 
     @Column(name = "motdepasse")
     private String motDepasse;
@@ -45,6 +40,19 @@ public class Utilisateur extends AbstractEntity{
     @JoinColumn(name = "id_entreprise")
     private Entreprise entreprise;
 
-    @OneToMany(mappedBy = "utilisateur")
-    private List<Roles> roles;
+    @ManyToOne
+    @JoinColumn(name = "id_role")
+    private Roles roles;
+
+    public Utilisateur (String prenom, String nom, String email, Date dateDeNaissance, String motDepasse, Adresse adresse, String photo, Entreprise entreprise, Roles roles){
+        this.prenom = prenom;
+        this.nom =nom;
+        this.email = email;
+        this.dateDeNaissance = dateDeNaissance;
+        this.motDepasse = motDepasse;
+        this.adresse = adresse;
+        this.photo = photo;
+        this.entreprise = entreprise;
+        this.roles = roles;
+    }
 }

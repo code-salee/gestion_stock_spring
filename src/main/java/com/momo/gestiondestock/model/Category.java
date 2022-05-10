@@ -19,14 +19,21 @@ import lombok.*;
 @Table(name="category")
 public class Category extends AbstractEntity{
 
-    @Column(name = "code")
+
+    @Column(name = "code", unique=true, nullable = false)
     private String code;
 
 
-    @Column(name = "designation")
+    @Column(name = "designation", nullable = false)
     private String designation;
 
 
     @OneToMany(mappedBy = "category")
     private List<Article> articles;
+
+    public Category(String code, String designation) {
+
+        this.code = code;
+        this.designation = designation;
+    }
 }

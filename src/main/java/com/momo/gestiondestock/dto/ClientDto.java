@@ -1,6 +1,7 @@
 package com.momo.gestiondestock.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.momo.gestiondestock.model.AbstractEntity;
 import com.momo.gestiondestock.model.Adresse;
 import com.momo.gestiondestock.model.Client;
 import lombok.Builder;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Data
 @Builder
-public class ClientDto {
+public class ClientDto extends AbstractEntity {
 
     private Integer id;
 

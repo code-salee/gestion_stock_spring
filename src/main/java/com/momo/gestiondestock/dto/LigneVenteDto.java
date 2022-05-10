@@ -30,7 +30,6 @@ public class LigneVenteDto extends AbstractEntity {
         return LigneVenteDto.builder()
                 .id(ligneVente.getId())
                 .quantite(ligneVente.getQuantite())
-                .vente(VentesDto.fromEntity(ligneVente.getVente()))
                 .build();
     }
 
@@ -42,7 +41,6 @@ public class LigneVenteDto extends AbstractEntity {
         LigneVente lignevente = new LigneVente();
         lignevente.setId(ligneVenteDto.getId());
         lignevente.setQuantite(ligneVenteDto.getQuantite());
-        lignevente.setVente(VentesDto.toEntity(ligneVenteDto.getVente()));
         return lignevente;
     }
 }

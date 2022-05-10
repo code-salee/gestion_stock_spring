@@ -1,33 +1,50 @@
 package com.momo.gestiondestock.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper= false)
 @Entity
 @Table(name="article")
 
-public class Article extends AbstractEntity{
+public class Article {
 
-    @Column(name = "codearticle")
+    @Id
+    @GeneratedValue
+    private Integer id;
+
+
+    @CreatedDate
+    @Column(name="creationDate", nullable=false)
+    @JsonIgnore
+    private Date creationDate = new Date();
+
+
+    @LastModifiedDate
+    @Column(name="modificationDate", nullable = true)
+    @JsonIgnore
+    private Date modificationDate;
+
+    @Column(name = "codearticle", unique=true, nullable = false)
     private String codearticle;
 
 
-    @Column(name = "designation")
+    @Column(name = "designation", nullable = false)
     private String designation;
 
 
-    @Column(name = "prixunitaireht")
+    @Column(name = "prixunitaireht", nullable = false)
     private String prixunitaireht;
 
 
@@ -35,15 +52,27 @@ public class Article extends AbstractEntity{
     private String tauxtva;
 
 
-    @Column(name = "prixunitairettc")
+    @Column(name = "prixunitairettc", nullable = false)
     private String prixunitairettc;
 
 
-    @Column(name = "photo")
+    @Column(name = "photo", nullable = true)
     private String photo;
 
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "id_category")
     private Category category;
+
+    public Article(String codearticle, String designation, String prixunitaireht, String tauxtva, String prixunitairettc, String photo, Category category) {
+
+        this.codearticle = codearticle;
+        this.designation = designation;
+        this.prixunitaireht = prixunitaireht;
+        this.tauxtva = tauxtva;
+        this.prixunitairettc = prixunitairettc;
+        this.photo = photo;
+        this.category = category;
+    }
+
 }

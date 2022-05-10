@@ -22,7 +22,7 @@ public class ArticleValidator {
             errors.add("Veuillez renseigner le taux tva");
             errors.add("Veuillez renseigner le prix unitaire ttc");
             errors.add("Veuillez renseigner la photo");
-            errors.add("Veuillez renseigner le cateegory");
+           // errors.add("Veuillez renseigner le cateegory");
             return errors;
         }
         if(!StringUtils.hasLength(codearticle)){
@@ -43,9 +43,9 @@ public class ArticleValidator {
         if(!StringUtils.hasLength(photo)){
             errors.add("Veuillez renseigner le photo de l'article");
         }
-        if(category){
+        /*if(category){
             errors.add("Veuillez renseigner le catégorie de l'article");
-        }
+        }*/
         return errors;
     }
 }

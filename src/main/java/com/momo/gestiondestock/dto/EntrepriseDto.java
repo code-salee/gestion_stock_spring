@@ -29,7 +29,7 @@ public class EntrepriseDto  extends AbstractEntity {
 
     private String email;
 
-    private Instant numTel;
+    private String numTel;
 
     private String siteWeb;;
 

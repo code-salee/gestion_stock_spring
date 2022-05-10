@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommandeClientValidator {
-    public static List<String> Articlevalidate(CommandeClientDto commandeClientDto) {
+    public static List<String> CommandeClientValidate(CommandeClientDto commandeClientDto) {
         return getValidate(commandeClientDto == null, commandeClientDto.getCode(), commandeClientDto.getDateCommande(), commandeClientDto.getClient() == null);
     }
 

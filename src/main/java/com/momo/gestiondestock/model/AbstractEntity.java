@@ -3,6 +3,8 @@ package com.momo.gestiondestock.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -13,7 +15,9 @@ import java.time.Instant;
 
 @Data
 @MappedSuperclass
+@EqualsAndHashCode(callSuper = false)
 @EntityListeners(AuditingEntityListener.class)
+@NoArgsConstructor
 public class AbstractEntity implements Serializable {
 
     @Id
@@ -31,4 +35,7 @@ public class AbstractEntity implements Serializable {
     @Column(name="modificationDate")
     @JsonIgnore
     private Instant modificationDate;
+
+
+
 }

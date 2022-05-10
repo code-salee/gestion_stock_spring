@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClientValidator {
-    public static List<String> Articlevalidate(ClientDto clientDto) {
+    public static List<String> clientValidate(ClientDto clientDto) {
         return getValidate(clientDto == null, clientDto.getPrenom(), clientDto.getNom(), clientDto.getPhoto(),
                 clientDto.getEmail(), clientDto.getNumTel());
     }

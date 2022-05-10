@@ -34,7 +34,7 @@ public class Entreprise  extends AbstractEntity{
     private String email;
 
     @Column(name = "numtel")
-    private Instant numTel;
+    private String numTel;
 
     @Column(name = "siteweb")
     private String siteWeb;;
@@ -44,4 +44,15 @@ public class Entreprise  extends AbstractEntity{
 
     @OneToMany(mappedBy = "entreprise")
     private List<Utilisateur> utilisateur;
+
+    public Entreprise(String nom, String description, Adresse adresse, String codeFiscal, String email, String numTel, String siteWeb, String photo){
+        this.nom = nom;
+        this.description = description;
+        this.adresse = adresse;
+        this.codeFiscal = codeFiscal;
+        this.email = email;
+        this.numTel = numTel;
+        this.siteWeb = siteWeb;
+        this.photo = photo;
+    }
 }

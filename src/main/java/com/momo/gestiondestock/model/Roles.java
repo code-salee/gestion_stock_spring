@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -20,8 +22,10 @@ public class Roles extends AbstractEntity{
     @Column(name = "libelle")
     private String libelle;
 
-    @ManyToOne
-    @JoinColumn(name = "id_utilisateur")
-    private Utilisateur utilisateur;
+    @OneToMany(mappedBy = "roles")
+    private List<Utilisateur> utilisateur;
 
+    public Roles(String libelle){
+        this.libelle = libelle;
+    }
 }

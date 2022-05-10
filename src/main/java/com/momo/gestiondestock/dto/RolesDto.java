@@ -18,20 +18,18 @@ public class RolesDto extends AbstractEntity {
 
     private String libelle;
 
-    private UtilisateurDto utilisateur;
 
-    public RolesDto fromEntity(Roles roles){
+    public static RolesDto fromEntity(Roles roles){
         if( roles == null ){
             return null;
         }
         return RolesDto.builder()
                 .id(roles.getId())
                 .libelle(roles.getLibelle())
-                .utilisateur(UtilisateurDto.fromEntity(roles.getUtilisateur()))
                 .build();
     }
 
-    public Roles toEntity (Roles rolesDto){
+    public static Roles toEntity(RolesDto rolesDto){
         if(rolesDto == null){
             return null;
         }

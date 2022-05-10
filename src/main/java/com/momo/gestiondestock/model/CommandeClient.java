@@ -39,4 +39,9 @@ public class CommandeClient extends AbstractEntity {
     private List <LigneCommandeClient> ligneCommandeClient;
 
 
+    public CommandeClient(String code, Client client) {
+
+        this.code = code;
+    }
+
 }

@@ -15,7 +15,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper=true)
+@EqualsAndHashCode(callSuper=false)
 @Entity
 @Table(name="client")
 public class Client extends AbstractEntity{
@@ -46,4 +46,13 @@ public class Client extends AbstractEntity{
 
     @OneToMany(mappedBy = "client")
     private List<CommandeClient> commandeClient;
+
+    public Client(String prenom, String nom, Adresse adresse, String photo, String email, String numTel) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.adresse = adresse;
+        this.photo = photo;
+        this.email = email;
+        this.numTel = numTel;
+    }
 }
