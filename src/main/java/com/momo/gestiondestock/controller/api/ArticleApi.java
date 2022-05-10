@@ -26,7 +26,7 @@ public interface ArticleApi {
     @GetMapping(value = "/articles/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get un article", notes = "Cette methode de rechercher un article par ID", response = ArticleDto.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "L'objet article a été bien trouver"),
+            @ApiResponse(code = 200, message = "L'objet article a été bien trouver avec succes"),
             @ApiResponse(code = 404, message = "Aucun article trouvé avec cette ID")
     })
     ArticleDto findById(@PathVariable("id") Integer id);
