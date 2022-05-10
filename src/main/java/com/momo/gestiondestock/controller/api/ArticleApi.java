@@ -50,7 +50,7 @@ public interface ArticleApi {
     @GetMapping(value = "/articles", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Renvoi la liste des articles", notes = "Cette methode permet renvoi la liste des articles", response = ArticleDto.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message= "L'objet article a été bien trouver")
+            @ApiResponse(code = 200, message= "L'objet article a été bien trouver avec succes")
     })
     List<ArticleDto> findAll();
 
