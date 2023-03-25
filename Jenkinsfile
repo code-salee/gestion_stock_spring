@@ -3,7 +3,8 @@ pipeline {
 
     tools {
         maven "maven3.8.7"
-        sonar_scanner "sonar_scanner4.8.0.2856"
+    //    sonar "sonar_scanner4.8.0.2856"
+   //sonar_token squ_80a9d90b556bf1107ab4d5b26cb73ffc4fbf9a79
     }
 
     stages {
